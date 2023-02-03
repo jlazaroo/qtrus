@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesaurus</title>
+    <style>
+        /* html {
+            border-radius: 0 0 20px 20px;
+        }
+        body {
+            margin: 0;
+            border-radius: 0 0 20px 20px;
+            border: 4px solid red;
+            background-color: lightblue;
+        } */
+        h4 {
+            margin: 0;
+        }
+        #searchDiv {
+            padding: 0 0 10px 0;
+        }
+        #searchInput {
+            vertical-align: middle;
+        }
+        #submit {
+            vertical-align: middle;
+        }
+        #icon {
+            width: 25px;
+            vertical-align: middle;
+            padding-right: 3px;
+        }
+        #historyDiv {
+            display: block;
+        }
+        #historyTitle {
+            display: inline;
+        }
+        #historyListUl {
+            display: inline;
+            margin: 0;
+            padding: 0 5px 0 5px;
+        }
+        button {
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .history-list-item li {
+            list-style-type: none;
+            font-size: .7rem;
+            vertical-align: middle;
+        }
+        .list-item li {
+            display: inline;
+            list-style-type: none;
+            font-size: .9rem;
+        }
+        .list-item img {
+            padding: 0 2px 2px 5px;
+            width: 14px;
+            vertical-align: bottom;
+            transition: all .2s linear;
+            opacity: .5;
+        }
+        img:hover {
+            opacity: 100;
+        }
+        #listsDiv {
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center; */
+            width: 300px;
+            border-radius: 0 20px 0 20px;
+        }
+        .list-item {
+            display: inline-block;
+            width: auto;
+            height: 17px;
+            margin: 0 0 3px 0;
+            padding: 0 0 0 4px;
+            border: 1px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+        .history-list-item {
+            display: inline-block;
+            width: auto;
+            height: 14px;
+            margin: 0 0 3px 0;
+            padding: 0 2px 0 2px;
+            border: 1px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+        /* .list-item:hover {
+            height: 30px;
+            margin: 0 0 3px 0;
+            transition: all .2s linear;
+        } */
+        .link {
+            font-size: 8px;
+        }
+        .hide {
+            height: 0;
+            width: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="searchDiv">
+        <img id="icon" src="images/thesaurus-icon-128-v2.png" alt="">
+        <input type="text" id="searchInput" required>
+        <button type="button" id="submit">search</button>
+        
+    </div>
+
+
+    <div id="historyDiv">
+        <h4 id="historyTitle">History</h4>
+        <ul id="historyListUl">
+        </ul>
+    </div>
+
+
+    <h2 id="searchWord"></h2>
+
+    <div id="listsDiv">
+        <h3>Synonyms</h3>
+        <ul id="synListUl">
+        </ul>
+        <h3>Antonyms</h3>
+        <ul id="antListUl">
+        </ul>
+    </div>
+    
+    <button type="button" id="clear">clear</button>
+    <!-- <img src="images/copy-icon.png" alt="[ ]"> -->
+
+</body>
+<script src="script.js"></script>
+</html>
