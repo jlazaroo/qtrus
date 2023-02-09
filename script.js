@@ -1,8 +1,13 @@
-const options = {
+
+
+
+const app_key = `0873c0ac9a8c2ec4df73424a9df89768`;
+const app_id = `0d5e9a2e`;
+
+options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'bf27529892mshf78234ca1d3fe4ep138a1djsn484920aa581e',
-		'X-RapidAPI-Host': 'thesaurus-by-api-ninjas.p.rapidapi.com'
+		"Accept": "application/json","app_id": app_id, "app_key": app_key
 	}
 };
 
@@ -16,6 +21,7 @@ const clear = document.getElementById('clear');
 const searchInput = document.getElementById('searchInput');
 const searchWord = document.getElementById('searchWord');
 const images = document.querySelectorAll('img');
+
 let word;
 let data;
 let synonymsList;
@@ -53,15 +59,21 @@ submit.onclick = function() {
 
 // fetches the searched word from a thesaurus database api
 function fetchData(word) {
-    fetch(`https://thesaurus-by-api-ninjas.p.rapidapi.com/v1/thesaurus?word=${word}`, options)
+    fetch(`https://od-api.oxforddictionaries.com/api/v2/thesaurus/en/${word}?strictMatch=false`, options)
 	.then(response => response.json())
 	.then(function(response){
         searchWord.innerHTML = word;
         data = response;
-        synonymsList = data.synonyms;
-        antonymsList = data.antonyms;
-        synonymsList.forEach(createSynonymsList);
-        antonymsList.forEach(createAntonymsList);
+
+        synonymsList = data.results[0].lexicalEntries[0].entries[0].senses[0].synonyms;
+ 
+        synonymsList.forEach(createSynonymsList)
+
+        if(data.results[0].lexicalEntries[0].entries[0].senses[0].antonyms.length > 0) {
+            antonymsList = data.results[0].lexicalEntries[0].entries[0].senses[0].antonyms;
+            antonymsList.forEach(createAntonymsList)
+        }
+        // console.log(synonymsList)
         historyList.forEach(createHistoryList);
         clickWord();
         save();
@@ -103,7 +115,7 @@ function historyListArray() {
             dupe = true;
         }
     });
-    console.log(dupe);
+    // console.log(dupe);
     if(historyList.length < 5 && dupe == false) {
         historyList.push(word);
     }else if(dupe == false){
@@ -119,14 +131,15 @@ function createHistoryList(item) {
 };
 
 function createSynonymsList(item) {
+    console.log(item.text);
     synListUl.innerHTML += `
-        <div class="list-item"><li>${item}</li><img src="images/copy-icon.png" alt="[ ]" title="copy ${item}"></div>
+        <div class="list-item"><li>${item.text}</li><img src="images/copy-icon.png" alt="[ ]" title="copy ${item.text}"></div>
     `
 };
 
 function createAntonymsList(item) {
     antListUl.innerHTML += `
-        <div class="list-item"><li>${item}</li><img src="images/copy-icon.png" alt="[ ]" title="copy ${item}"></div>
+        <div class="list-item"><li>${item.text}</li><img src="images/copy-icon.png" alt="[ ]" title="copy ${item.text}"></div>
     `
 };
 
