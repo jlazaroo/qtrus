@@ -1,13 +1,11 @@
 
 
 
-const app_key = `0873c0ac9a8c2ec4df73424a9df89768`;
-const app_id = `0d5e9a2e`;
 
 options = {
 	method: 'GET',
 	headers: {
-		"Accept": "application/json","app_id": app_id, "app_key": app_key
+		"Accept": "application/json","0d5e9a2e": app_id, "0873c0ac9a8c2ec4df73424a9df89768": app_key
 	}
 };
 
