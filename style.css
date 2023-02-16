@@ -1,0 +1,241 @@
+html {
+    min-height: 100%;
+    width: 300px;
+    font-family: 'Lato', sans-serif;
+    color: rgb(0, 52, 77);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: rgb(250,250,250);
+    background: linear-gradient(to bottom, rgba(250,250,250,0.8279747596153846) 0%, rgba(129,169,184,0.10682091346153844) 100%);
+}
+body {
+    height: 100%;
+} 
+ul {
+    margin: 0;
+    padding: 0;
+}
+h3, h4 {
+    display: inline;
+    margin: 0;
+}
+#searchWord {
+    margin: 5px 0;
+    font-family: 'Courgette', cursive;
+}
+#synStat {
+    font-style: italic;
+    color: rgb(54, 125, 28);
+}
+#antStat {
+    font-style: italic;
+    color: rgb(125, 28, 28);
+}
+#searchDiv {
+    display: flex;
+    padding: 0 0 10px 0;
+}
+#searchInput {
+    flex-grow: 2;
+    vertical-align: middle;
+    border-radius: 8px;
+    border: 2px solid rgb(0, 52, 77);
+}
+#searchInput:hover, #searchInput:focus {
+    border: 2px solid rgb(0, 95, 139);
+    outline: none;
+}
+#submit {
+    height: 15px;
+    margin-left: 5px;
+    vertical-align: middle;
+    color: white;
+    background-color: rgb(0, 52, 77);
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#icon {
+    width: 25px;
+    vertical-align: middle;
+    padding-right: 3px;
+}
+#historyDiv {
+    display: block;
+}
+#historyTitle {
+    display: inline;
+}
+#historyListUl {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+#clear {
+    height: 18px;
+    margin: 20px 0 0 0;
+    background-color: rgb(0, 52, 77);
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+button {
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(0, 52, 77);
+}
+.history-list-item li {
+    list-style-type: none;
+    font-size: .7rem;
+    vertical-align: middle;
+}
+#synListDiv, #antListDiv {
+    padding: 4px 0 4px 10px;
+    transition: all 1s linear;
+}
+.more, .less{
+    margin: 0;
+    padding-left: 0;
+    cursor: pointer;
+    color: gray;
+    transition: all .5s linear;
+}
+.more:hover, .less:hover {
+    color: black;
+}
+
+/* #synListUl, #antListUl {
+    padding: 0 0 0 10px
+} */
+
+.list-item li {
+    display: inline;
+    list-style-type: none;
+    font-size: .9rem;
+}
+.list-item img {
+    padding: 0 2px 1px 5px;
+    width: 14px;
+    vertical-align: bottom;
+    transition: all .2s linear;
+    opacity: .5;
+}
+img:hover {
+    opacity: 100;
+}
+#listsDiv {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+
+    /* width: 300px; */
+    border-radius: 0 20px 0 20px;
+}
+.list-item {
+    display: inline-block;
+    width: auto;
+    height: 17px;
+    margin: 0 0 3px 0;
+    padding: 0 0 1px 4px;
+    border: 1px solid rgb(0, 52, 77);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+#synListUl .list-item {
+    background-color: rgba(0, 255, 0, 0.166);
+}
+#antListUl .list-item{
+    background-color: rgba(255, 0, 0, 0.166);
+}
+.history-list-item {
+    display: inline-block;
+    width: auto;
+    height: 14px;
+    margin: 0 0 3px 0;
+    padding: 0 2px 0 2px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s linear;
+    background-color: rgba(173, 216, 230, 0.22);
+}
+/* .list-item:hover {
+    height: 30px;
+    margin: 0 0 3px 0;
+    transition: all .2s linear;
+} */
+.link {
+    font-size: 8px;
+}
+.hide {
+    display: none;
+    /* height: 0;
+    width: 0; */
+}
+.green {
+    background-color: rgba(0, 255, 0, 0.166);
+}
+.yellow {
+    background-color: rgba(255, 255, 0, 0.166);
+}
+.orange {
+    background-color: rgba(255, 200, 0, 0.166);
+}
+.red {
+    background-color: rgba(255, 0, 0, 0.166);
+}
+
+/* @media screen and (max-width: 577px) {
+    body {
+        width: 99vw;
+    }
+    #icon {
+        width: 50px;
+        vertical-align: middle;
+        padding-right: 3px;
+    }
+    #searchDiv {
+        width: 96%;
+    }
+    #searchInput {
+        flex-grow: 1;
+    }
+    #submit {
+        height: 30px;
+    }
+    h1 {
+        font-size: 13vw;
+    }
+    h3 {
+        font-size: 7vw;
+    }
+    h4 {
+        font-size: 7vw;
+    }
+    .history-list-item {
+        height: auto;
+    }
+    .history-list-item li {
+        font-size: 7vw;
+    }
+    .list-item {
+        height: auto;
+    }
+    .list-item li {
+        font-size: 7vw;
+    }
+    .list-item img {
+        padding: 0 2px 3px 5px;
+        width: 7vw;
+    }
+    .more, .less {
+        font-size: 6vw;
+    }
+    #clear {
+        height: 30px;
+    }
+} */

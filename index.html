@@ -5,120 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thesaurus</title>
-    <style>
-        /* html {
-            border-radius: 0 0 20px 20px;
-        }
-        body {
-            margin: 0;
-            border-radius: 0 0 20px 20px;
-            border: 4px solid red;
-            background-color: lightblue;
-        } */
-        h4 {
-            margin: 0;
-        }
-        #searchDiv {
-            padding: 0 0 10px 0;
-        }
-        #searchInput {
-            vertical-align: middle;
-        }
-        #submit {
-            vertical-align: middle;
-        }
-        #icon {
-            width: 25px;
-            vertical-align: middle;
-            padding-right: 3px;
-        }
-        #historyDiv {
-            display: block;
-        }
-        #historyTitle {
-            display: inline;
-        }
-        #historyListUl {
-            display: inline;
-            margin: 0;
-            padding: 0 5px 0 5px;
-        }
-        button {
-            border-radius: 15px;
-            border: none;
-            cursor: pointer;
-        }
-        .history-list-item li {
-            list-style-type: none;
-            font-size: .7rem;
-            vertical-align: middle;
-        }
-        .list-item li {
-            display: inline;
-            list-style-type: none;
-            font-size: .9rem;
-        }
-        .list-item img {
-            padding: 0 2px 2px 5px;
-            width: 14px;
-            vertical-align: bottom;
-            transition: all .2s linear;
-            opacity: .5;
-        }
-        img:hover {
-            opacity: 100;
-        }
-        #listsDiv {
-            /* display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center; */
-            width: 300px;
-            border-radius: 0 20px 0 20px;
-        }
-        .list-item {
-            display: inline-block;
-            width: auto;
-            height: 17px;
-            margin: 0 0 3px 0;
-            padding: 0 0 0 4px;
-            border: 1px solid black;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all .2s linear;
-        }
-        .history-list-item {
-            display: inline-block;
-            width: auto;
-            height: 14px;
-            margin: 0 0 3px 0;
-            padding: 0 2px 0 2px;
-            border: 1px solid black;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all .2s linear;
-        }
-        /* .list-item:hover {
-            height: 30px;
-            margin: 0 0 3px 0;
-            transition: all .2s linear;
-        } */
-        .link {
-            font-size: 8px;
-        }
-        .hide {
-            height: 0;
-            width: 0;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div id="searchDiv">
         <img id="icon" src="images/thesaurus-icon-128-v2.png" alt="">
         <input type="text" id="searchInput" required>
-        <button type="button" id="submit">search</button>
+        <img src="images/magnifying-glass-white.svg" id="submit" title="search" alt="">
         
     </div>
 
@@ -129,22 +26,28 @@
         </ul>
     </div>
 
-    <div id="searchWordDiv">
-        <h2 id="searchWord"></h2>
-        <p id="definition"></p>
-    </div>
-   
+    <h1 id="searchWord"></h1>
 
     <div id="listsDiv">
         <h3>Synonyms</h3>
-        <ul id="synListUl">
-        </ul>
+        <h3 id="synStat"></h3>
+
+        <div id="synListDiv" class="listShrink">
+            <ul id="synListUl">
+            </ul>
+        </div>
+                
         <h3>Antonyms</h3>
-        <ul id="antListUl">
-        </ul>
+        <h3 id="antStat"></h3>
+
+        <div id="antListDiv" class="listShrink">
+            <ul id="antListUl">
+            </ul>
+        </div>
+
     </div>
     
-    <button type="button" id="clear">clear</button>
+    <img src="images/recycle-white.svg" id="clear" title="clear" alt="">
     <!-- <img src="images/copy-icon.png" alt="[ ]"> -->
 
 </body>
