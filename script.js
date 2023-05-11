@@ -46,11 +46,16 @@ searchInput.onkeydown = function(event) {
 
 // listens for submit click and runs fetchData
 submit.onclick = function() {
-    word = searchInput.value;
-    searchWord.innerHTML = word;
-    historyListArray();
-    listsClear();
-    fetchData(word);
+    if(searchInput.value == ''){
+        alert('search has no input');
+    }else{
+         word = searchInput.value;
+        // searchWord.innerHTML = word;
+        // historyListArray();
+        // listsClear();
+        fetchData(word);
+    }
+   
 };
 
 // fetches the searched word from a thesaurus database api
@@ -66,20 +71,30 @@ function fetchData(word) {
         }))
     })
 	.then(function(response){
-        searchWord.innerHTML = word;
-        data = response;
         
-        synonymsList = data[0];
-        antonymsList = data[1];
+        data = response;
 
-        createList(synListUl, synonymsList, 0, synonymsList.length);
-        createList(antListUl, antonymsList, 0, antonymsList.length)
+        if(data[0].length > 0 || data[1].length > 0){
+            searchWord.innerHTML = word;
+            historyListArray();
+            listsClear();
+            historyList.forEach(createHistoryList);
+        }
+        
+        if(data[0].length > 0){
+            synonymsList = data[0];
+            createList(synListUl, synonymsList, 0, synonymsList.length);
+            synStat.innerHTML = `${synonymsList.length}`;
+        }
 
-        synStat.innerHTML = `${synonymsList.length}`;
-        antStat.innerHTML = `${antonymsList.length}`;
+        if(data[1].length > 0){
+            antonymsList = data[1];
+            createList(antListUl, antonymsList, 0, antonymsList.length)
+            antStat.innerHTML = `${antonymsList.length}`;
+        }
+        
 
-        historyList.forEach(createHistoryList);
-
+        
         hide('synListUl');
         
         clickWord();

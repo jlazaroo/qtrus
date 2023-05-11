@@ -1,9 +1,12 @@
 {
     "name": "Quick Thesaurus",
-    "version": "1.4",
+    "version": "1.5",
     "description": "Quick way to get a list of synonyms or antonyms",
     "manifest_version": 3,
     "author": "John Lazaroo",
+    "permissions": [
+        "storage"
+    ],
     "action": {
         "default_popup": "index.html",
         "default_title": "Thesaurus",
